@@ -1,0 +1,8 @@
+<h1>Stories</h1>
+
+<% @stories.each do |story| %>
+  <p>
+    <%= link_to(story.title, story.url, target: "_blank") %> - <%= link_to("Show Page", story) %>
+  </p>
+
+<% end %>

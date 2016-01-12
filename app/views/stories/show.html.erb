@@ -1,0 +1,13 @@
+<%= link_to(@story.title, @story.url, target: "_blank") %><br/>
+<small>Submitted <%= time_ago_in_words(@story.created_at) %> ago</small>
+
+<h3>Comments</h3>
+
+<%= form_for [@story, Comment.new] do |f| %>
+<%= f.text_area :body, placeholder: "Add a comment" %><br/>
+<%= f.submit "Add Comment" %>
+<% end %>
+
+<ul>
+  <%= render(partial: 'comments/comment', collection: @story.comments) %>
+</ul>
